@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import MainScreen from '../main/MainScreen';
 import LoginScreen from '../screens/LoginScreen';
 import MyPage from '../screens/MyPage';
+import SignUpScreen from '../screens/SignUpScreen';
 
 const Stack = createStackNavigator();
 
@@ -39,6 +40,7 @@ const StackNavigator = () =>{
             <Stack.Screen name="메인페이지" component={MainScreen} options={{headerShown:false}} />
             <Stack.Screen name="로그인" component={LoginScreen} options={{headerShown:false}} />
             <Stack.Screen name="마이페이지" component={MyPage} options={{headerShown:false}} />
+            <Stack.Screen name="회원가입" component={SignUpScreen} options={{headerShown:false}} />
 
 
             

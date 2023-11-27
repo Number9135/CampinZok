@@ -5,9 +5,12 @@ import { View, Text, StyleSheet, ScrollView, Image, TextInput, TouchableOpacity 
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { auth } from "../../../firebaseConfig";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from "@react-navigation/native";
 
 
 export default function LoginScreen() {
+
+    const navigation = useNavigation();
 
     const [inputValue, setInputValue] = useState({
         isEmail: '',
@@ -62,7 +65,6 @@ export default function LoginScreen() {
                         onFocus={() => handleInputValue("isFocus", "email")}
                         onBlur={() => handleInputValue("isFocus", null)}
                         onChangeText={(text) => handleInputValue("isEmail", text)}
-                        keyboardType="email"
                         placeholder="Email"
                     />
                     <TextInput
@@ -90,7 +92,8 @@ export default function LoginScreen() {
                     </TouchableOpacity>
                     <View style={styles.signUpContainer}>
                         <Text style={styles.autoLoginText}>아직 회원이 아니신가요?</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={()=> navigation.navigate('회원가입')}
+                        >
                             <Text style={[styles.autoLoginText, { color: 'blue', paddingLeft: 10, }]}>회원가입</Text>
                         </TouchableOpacity>
                     </View>
